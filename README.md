@@ -6,7 +6,7 @@ Essa API tem o objetivo de evitar o abandono de animais em especifico os gatos
 - Essa rota cadastra o doador do gato 
 #(/doacao/cadastro)
 
-- Nessa Rota é posivel login da conta cadastrada pelo adotante 
+- Nessa Rota é posivel login da conta cadastrada pelo doador
 #(/doacao/login)
 
 - Esta Rota é possivel que o doador do gato coloque o animal para adoção 
