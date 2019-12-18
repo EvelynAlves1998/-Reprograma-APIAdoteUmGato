@@ -2,7 +2,7 @@
 Não abandone seu Amigo! Doe ou Adote um Gatinho!(Meu Projeto Final {Reprograma})
 Essa API tem o objetivo de evitar o abandono de animais em especifico os gatos
 
-- Dependencias e bibliotecas para instalar!
+- Dependências e Bibliotecas para instalar!
 #npm i express bcryptjs body-parser mongoose jsonwebtoken
 
 # Rotas Doador do Gato 
