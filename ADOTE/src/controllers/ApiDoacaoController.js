@@ -46,23 +46,22 @@ router.get('/listaradotantes',authMiddleware, async(req, res) => {
                 return res.status(400).send({ error: 'Erro ao listar gatos disponiveis para adoção' });
         }
     });
-
 //--------------------------------------------
 //Listar gatos pelo id
-router.get('/:gatosid',authMiddleware, async(req, res) => {
+// router.get('/listargatoid/:listargatoid',authMiddleware, async(req, res) => {
 
-                try {
-                        const bancogato = await bancogato.findById(req.params.gatosId)
-                                return res.send({bancogato, user: req.userId})
-                } catch (err) {
-                        return res.status(400).send({ error: 'Erro ao listar gatos disponiveis para adoção' })
-                }
+//                 try {
+//                 const bancogato = await bancogato.findById(req.params.listargatoId)
+//                          return res.send({nomedogato})
+//                 } catch (err) {
+//                         return res.status(400).send({ error: 'Erro  ao listar gatos disponiveis para adoção' })
+//                 }
 
-});
+// });
 
 //------------------------------------------------
 // Atualizar informações do gato
-router.patch('/atualizagatoId/:atualizagatoId',authMiddleware, async(req, res) => {
+router.patch('/atualizagatoid/:atualizagatoid',authMiddleware, async(req, res) => {
         const id = req.params.id
         const gatoatualizar = req.body;
         const options = { new: true }
@@ -87,18 +86,12 @@ router.patch('/atualizagatoId/:atualizagatoId',authMiddleware, async(req, res) =
         )
 });
 
-
-
-
-
-
-
 //------------------------------------------
 //Deletar gato pra adoção
 router.delete('/deletegatoid/:deletagatoid',authMiddleware, async(req, res) => {
 
         try {
-                const bancogato = await bancogato.findbyIdAndRemove(req.params.listargatoId);
+                const bancogato = await bancogato.findbyIdAndRemove(req.params.gatosId);
 
                 return res.send({mensagem: "Gato deletado com sucesso! "});
         } catch (err) {
