@@ -35,7 +35,7 @@ router.get('/listargatos',authMiddleware, async(req, res) => {
         }
  });
 //-------------------------------------------------------------------------------------------
-// listar adotantes interessados e buscar o id do gato que vc colocou pra adoção
+// listar adotantes interessados 
 router.get('/listaradotantes',authMiddleware, async(req, res) => {
 
         try {
@@ -43,7 +43,7 @@ router.get('/listaradotantes',authMiddleware, async(req, res) => {
 
                 return res.send({adotantes})
         } catch (err) {
-                return res.status(400).send({ error: 'Erro ao listar gatos disponiveis para adoção' });
+                return res.status(400).send({ error: 'Erro ao listar adotantes disponiveis' });
         }
     });
 //------------------------------------------------
