@@ -18,7 +18,7 @@ Essa API tem o objetivo de evitar o abandono de animais em especifico os gatos
 - Nessa rota é possível listar todos os gatos que o doador colocou para adoção 
 #(/doacao/listargatos)
 
--Nesta rota é possível listar os gatos pelo ID
+- Nesta rota é possível listar os gatos pelo ID
 #(/doacao/:gatosId)
 
 - Nessa rota é possivel atualizar as informações do gato cadastrado pelo ID
