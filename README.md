@@ -25,7 +25,7 @@ Essa API tem o objetivo de evitar o abandono de animais em especifico os gatos
 #(/doacao/atualizagatoid/:atualizagatoid)
 
 - Nessa rota é possivel apagar um gato cadastrado pelo ID
-#(/doacao/deletagatoid/:deletagatoid)
+#(/doacao/deletegatoId/:deletegatoId)
 
 - Nessa rota é possivel que o doador liste todos os doadores disponiveis 
 #(/doacao/listaradotantes)
