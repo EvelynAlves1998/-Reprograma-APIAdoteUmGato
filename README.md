@@ -22,7 +22,7 @@ Essa API tem o objetivo de evitar o abandono de animais em especifico os gatos
 #(/doacao/gatosId/:gatosId)
 
 - Nesta rota é possivel atualizar as informações do gato cadastrado pelo ID
-#(/doacao/atualizagatoid/:atualizagatoid)
+#(/doacao/atualizagatoId/:atualizagatoId)
 
 - Nesta rota é possivel apagar um gato cadastrado pelo ID
 #(/doacao/deletegatoId/:deletegatoId)
