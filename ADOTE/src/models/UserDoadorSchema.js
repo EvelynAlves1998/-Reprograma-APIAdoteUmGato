@@ -24,13 +24,12 @@ const UserSchema = new mongoose.Schema({
         select: false,
     },
 //-------------------------------------------------
-//---------------------------------------------
-    gatos: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'bancogato',
-        required: true,
+//     gatos: [{
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: 'bancogato',
+//         required: true,
 
-    }],
+//     }],
 
 //------------------------------------------------
     createdAT:{
