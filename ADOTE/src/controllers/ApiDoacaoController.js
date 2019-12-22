@@ -27,8 +27,7 @@ router.post('/doargato',authMiddleware, async(req, res) => {
 router.get('/listargatos',authMiddleware, async(req, res) => {
 
         try {
-        const bancogatos = await bancogato.find()
-
+                const bancogatos = await bancogato.find()
                 return res.send({bancogatos, user: req.userId})
         } catch (err) {
                 return res.status(400).send({ error: 'Erro ao listar gatos disponiveis para adoção' });
@@ -39,8 +38,7 @@ router.get('/listargatos',authMiddleware, async(req, res) => {
 router.get('/listaradotantes',authMiddleware, async(req, res) => {
 
         try {
-        const adotantes = await adotante.find()
-
+                const adotantes = await adotante.find()
                 return res.send({adotantes})
         } catch (err) {
                 return res.status(400).send({ error: 'Erro ao listar adotantes disponiveis' });
@@ -48,14 +46,15 @@ router.get('/listaradotantes',authMiddleware, async(req, res) => {
     });
 //--------------------------------------------
 //Listar gatos pelo id
-router.get('/:gatosId',authMiddleware, async(req, res) => {
+router.get('/gatosId/:gatosId',authMiddleware, async(req, res) => {
 
-
-try {
-const bancogatos = await bancogato.findById(req.params.gatosId).populate(['bancogato']);
-        console.log({bancogatos})
-        return res.send({bancogatos,user: req.userId})
-} catch (err) {
+        try {
+        
+                const bancogatos = await bancogato.findById(req.params.gatosId).populate(['bancogato']);
+                console.log({bancogatos})
+        
+                return res.send({bancogatos,user: req.userId})
+        } catch (err) {
           return res.status(400).send({ error: 'Erro ao listar gatos pelo ID' });
  }
 
@@ -88,16 +87,17 @@ router.patch('/atualizagatoid/:atualizagatoid',authMiddleware, async(req, res) =
 });
 
 //------------------------------------------
-//Deletar gato pra adoção
-router.delete('/deletegatoid/:deletagatoid',authMiddleware, async(req, res) => {
+//Deletar gato pra adoção pelo id
+router.delete('/deletegatoId/:deletegatoId',authMiddleware, async(req, res) => {
 
         try {
-                const bancogato = await bancogato.findbyIdAndRemove(req.params.gatosId);
+                await bancogato.findByIdAndRemove(req.params.deletegatoId);
 
-                return res.send({mensagem: "Gato deletado com sucesso! "});
+                return res.status(200).send({message: "Gato deletado com sucesso!"});
         } catch (err) {
-                return res.status(400).send({ error: 'Erro ao deletar gato pelo id!' });
+                return res.status(400).send({ error: 'Erro ao deletar gato pelo ID' });
         }
+
 });
 //-------------------------------------------------------------------
 module.exports = app => app.use('/doacao', router);
