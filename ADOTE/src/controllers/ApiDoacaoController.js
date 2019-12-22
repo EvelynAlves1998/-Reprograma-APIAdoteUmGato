@@ -54,7 +54,7 @@ router.get('/:gatosId',authMiddleware, async(req, res) => {
 try {
 const bancogatos = await bancogato.findById(req.params.gatosId).populate(['bancogato']);
         console.log({bancogatos})
-        return res.send({bancogatos})
+        return res.send({bancogatos,user: req.userId})
 } catch (err) {
           return res.status(400).send({ error: 'Erro ao listar gatos pelo ID' });
  }
