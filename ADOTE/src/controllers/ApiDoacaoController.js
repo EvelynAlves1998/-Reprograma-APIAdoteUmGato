@@ -60,30 +60,26 @@ router.get('/gatosId/:gatosId',authMiddleware, async(req, res) => {
 
 });
 //------------------------------------------------
-// Atualizar informações do gato
-router.patch('/atualizagatoid/:atualizagatoid',authMiddleware, async(req, res) => {
-        const id = req.params.id
-        const gatoatualizar = req.body;
-        const options = { new: true }
-        bancogato.findByIdAndUpdate(req.params.gatosId, (
-                id,
-                gatoatualizar,
-                options,
-                nomedogato,
-                vacinado,
-                castrado,
-                sexo,
-                descricao,
-                (err,gatoatualizar) => {
-                if(err){
-                        return res.status(500).send({ error: 'Erro Ao atualizar as informações do gato' });
-                }
-                if(gatoatualizar){
-                        return res.status(200).send(gatoatualizar)
-                }
-        })
+// Atualizar informações do gato pelo id
+router.put('/atualizagatoId/:atualizagatoId',authMiddleware, async(req, res) => {
 
-        )
+        try {
+                const {nomedogato,vacinado,foto, castrado,sexo,descricao,disponivelpradoacao} = req.body;
+                const atualizagato = await bancogato.findByIdAndUpdate(req.params.atualizagatoId, {
+                        nomedogato,
+                        vacinado,
+                        foto,
+                        castrado,
+                        sexo,
+                        descricao,
+                        disponivelpradoacao,
+                }, { new: true });
+                await atualizagato.save();
+                return res.send({atualizagato});
+                
+             } catch (err) {
+                return res.status(400).send({ err: 'erro ao atualizar gato' });
+             }
 });
 
 //------------------------------------------
