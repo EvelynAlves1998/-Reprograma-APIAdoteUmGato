@@ -46,6 +46,20 @@ router.get('/listaradotantes',authMiddleware, async(req, res) => {
                 return res.status(400).send({ error: 'Erro ao listar adotantes disponiveis' });
         }
     });
+//--------------------------------------------
+//Listar gatos pelo id
+router.get('/:gatosId',authMiddleware, async(req, res) => {
+
+
+try {
+const bancogatos = await bancogato.findById(req.params.gatosId).populate(['bancogato']);
+        console.log({bancogatos})
+        return res.send({bancogatos})
+} catch (err) {
+          return res.status(400).send({ error: 'Erro ao listar gatos pelo ID' });
+ }
+
+});
 //------------------------------------------------
 // Atualizar informações do gato
 router.patch('/atualizagatoid/:atualizagatoid',authMiddleware, async(req, res) => {
